@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chocolate Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #d52d43;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .chocolates {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .chocolate {
+      width: 200px;
+      background-color: #f1c40f;
+      border: 1px solid #e6d51e;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .chocolate h2 {
+      margin-top: 0;
+    }
+
+    .chocolate p {
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #d52d43;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Cart</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Welcome to our Chocolate Store</h1>
+    <div class="chocolates">
+      <div class="chocolate">
+        <h2>Chocolate 1</h2>
+        <p>Price: $10</p>
+        <button onclick="addToCart('Chocolate 1', 10)">Add to Cart</button>
+      </div>
+      <div class="chocolate">
+        <h2>Chocolate 2</h2>
+        <p>Price: $15</p>
+        <button onclick="addToCart('Chocolate 2', 15)">Add to Cart</button>
+      </div>
+      <!-- Add more chocolates here -->
+    </div>
+
+    <button onclick="showCart()">View Cart</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2022 Chocolate Store. All rights reserved.</p>
+  </footer>
+
+  <script>
+    var cartItems = [];
+
+    function addToCart(item, price) {
+      cartItems.push({ item: item, price: price });
+      alert("Item added to cart!");
+    }
+
+    function showCart() {
+      var totalItems = cartItems.length;
+      var totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
+      alert(`Total items: ${totalItems}\nTotal price: ${totalPrice}`);
+    }
+  </script>
+</body>
+</html>
